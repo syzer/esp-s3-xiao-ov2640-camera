@@ -17,25 +17,25 @@ Firmware for streaming OV2640 JPEG frames from an ESP32-S3 over Wi-Fi using Emba
 
 ## MJPEG Streaming
 
-The camera streams continuous MJPEG video on **port 81**:
+The camera streams continuous MJPEG video on **port 80**:
 
-- **Endpoint**: `http://<device-ip>:81/`
+- **Endpoint**: `http://<device-ip>:80/`
 - **Format**: `multipart/x-mixed-replace; boundary=frame`
 - **Usage**: Open in browser or use with video players that support MJPEG streams
 
 Example:
 ```bash
 # View in browser
-open http://192.168.1.100:81/
+open http://192.168.1.100:80/
 
 # Stream with ffplay
-ffplay http://192.168.1.100:81/
+ffplay http://192.168.1.100:80/
 
 # Stream with VLC
-vlc http://192.168.1.100:81/
+vlc http://192.168.1.100:80/
 ```
 
-**Note**: The HTTP server on port 80 with other endpoints (like `/frame.jpg`, `/status`) is currently disabled. Only MJPEG streaming on port 81 is active.
+**Note**: MJPEG streaming and the other HTTP endpoints (like `/frame.jpg`, `/status`) are served on port 80.
 
 ## Debugging Tips
 
